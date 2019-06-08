@@ -16,6 +16,15 @@ class SearchField extends Component {
 		}
 	}
 
+	componentDidMount () {
+		axios.get(this.state.trendingSearch + this.state.apiKey)
+		.then(res => {
+			this.setState({
+				gif: res.data.data
+			})
+		})
+	}
+
 	handleSubmit = (event) => {
 		axios.get(this.state.url)
 		.then(res => {
